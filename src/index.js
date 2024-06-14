@@ -8,7 +8,8 @@ const displayDogs = () => {
     const img = document.createElement("img")
     img.src = dog.image
     img.alt = dog.name
-    img.addEventListener("click", () => {handleClick(dog)})
-    document.querySelector('#SOMETHING IN HTML LINE 31').append(img)
+    img.addEventListener("click", () => console.log(dog))
+    document.querySelector('#dog-list').append(img)
   }))
 }
+displayDogs()
