@@ -1,0 +1,8 @@
+{
+    "dogs": [
+      { "id": 1, "name": "Tinkerbell", "breed": "Golden Retriever", "age": 3, "adopted": false },
+      { "id": 2, "name": "Peterpan", "breed": "Labrador", "age": 2, "adopted": false },
+      { "id": 3, "name": "whiskey", "breed": "Poodle", "age": 1, "adopted": false }
+    ]
+  }
+  
