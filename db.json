@@ -1,9 +1,13 @@
 {
     "dogs": [
-      { "id": 1, "name": "Tinkerbell", "breed": "Yorkshire Terrier", "age": 3, "adoptme": false,"image":"https://g.petango.com/photos/1963/06904071-c5fe-4e7b-ae48-6aad805947fb.jpg" },
-      { "id": 2, "name": "Peter Pan", "breed": "Labrador Mix", "age": 1, "adoptme": false },
-      { "id": 3, "name": "Wendy", "breed": "Golden Retriever", "age": 10, "adopted": false },
-      { "id": 3, "name": "Whiskey", "breed": "Mastiff", "age": 6, "adopted": false }
+      { "id": 1, "name": "Peter Pan", "breed": "German Sheperd", "age": 1, "available": false },
+      { "id": 2, "name": "Wendy", "breed": "Pit bull", "age": 1, "available": false },
+      { "id": 3, "name": "TinkerBell", "breed": "Silky Terrier", "age": 10, "available": false },
+      { "id": 3, "name": "Whiskey", "breed": "Labrador Retriever", "age": 1, "available": false },
+      { "id": 3, "name": "Pooh", "breed": "Great Pyrenees", "age": 4, "available": false },
+      { "id": 3, "name": "Tigger", "breed": "Huntaway", "age": 2, "available": false },
+      { "id": 3, "name": "Rue", "breed": "Nova Scotia Duck Tolling Retriever", "age": 8, "available": false },
+      { "id": 3, "name": "Cheese", "breed": "Yorkshire Terrier", "age": 2, "available": false }
     ]
 }
   
