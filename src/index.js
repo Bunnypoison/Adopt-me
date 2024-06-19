@@ -42,6 +42,7 @@ function dogNamesDropdown() {
   });
 }
 
+
 // Function to handle form submission
 function handleSubmit(event) {
   event.preventDefault(); // Prevent the default form submission
