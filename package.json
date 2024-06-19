@@ -1,5 +1,5 @@
 {
-  "name": "my-first-test",
+  "name": "adoptMe",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,6 +9,5 @@
   "author": "Erica Domerese",
   "license": "ISC",
   "dependencies": {
-    "json-server": "^1.0.0-beta.1"
   }
 }
