@@ -128,3 +128,18 @@ submitButton.addEventListener('submit', handleSubmit);
 // button.addEventListener('click'), function() {
 //   console.log('button clicked');
 // }
+
+// POST request to store new incoming adoptable dogs from our client to the db.json file
+// function addDog(dogObj){
+//   fetch("http://localhost:3000/dogs",{
+//     method: 'POST',
+//     headers: {
+//         'Content-Type': 'application/json'
+//     },
+//     body:JSON.stringify(dogOb)
+//   })
+//   .then(resp => resp.json())
+//   .then(dog => console.log(dog))
+  
+// }
+
