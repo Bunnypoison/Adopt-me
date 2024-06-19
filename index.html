@@ -1,52 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dog Adoption</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="index.js"></script> 
-  <title>Dog Adoption</title>
-  <style>
-    /* Add any necessary styling here */
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Adoption</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to an external CSS file -->
+    <script defer src="index.js"></script> 
 </head>
 <body>
-  <h1>Dog Adoption Center</h1>
+    <header>
+        <h1>Welcome to Dog Adoption</h1>
+        <nav>
+            <ul>
+                <!-- <li><a href="#home">Home</a></li>
+                <li><a href="#dogs">Available Dogs</a></li>
+                <li><a href="#contact">Contact</a></li> -->
+            </ul>
+        </nav>
+    </header>
 
-  <!-- Dropdown for dog names -->
-  <label for="select-dogs">Select a Dog:</label>
-  <select id="select-dogs">
-    <option value="" disabled selected>Select a dog</option>
-  </select>
+    <main>
+        <section id="home">
+            <h2>Home</h2>
+            <p>Welcome to our dog adoption center. Here you can find your new best friend.</p>
+        </section>
 
-  <!-- Container for displaying dog images -->
-  <div id="dog-list"></div>
+        <section id="dogs">
+            <h2>Available Dogs</h2>
+            <div id="dog-list"></div>
+				<div id="description"></div>
+			</div>
+        </section>
 
-  <!-- Description of the selected dog -->
-  <div id="description"></div>
+        <section id="submit-form-section">
+            <h2>Fill Out Form</h2>
+			<form id="submit-form"> 
+				<select id="select-dogs" name="select-dogs"> 
+					<option value="">
+						Select a dog
+					</option>
+				</select>
+			<input type="submit" value="Continue Adoption">	
+			</form>
+        </section>
 
-  <!-- Form for user input -->
-  <h2>Contact Us</h2>
-  <form id="contact-form">
-    <div>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-    </div>
-    <div>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-    <div>
-      <label for="select-dogs">Select a Dog:</label>
-      <select id="select-dogs" name="dogNamesDropdown">
-        <option value="" disabled selected>Select a dog</option>
-        <!-- Options will be populated by JavaScript -->
-      </select>
-    </div>
-    <button type="submit">Submit</button>
-  </form>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, please contact us at <a href="mailto:info@dogadoption.com">info@dogadoption.com</a>.</p>
+        </section>
+    </main>
 
-  <script src="index.js"></script>
+    <footer>
+        <p>&copy; 2024 Dog Adoption. All rights reserved.</p>
+    </footer>
 </body>
 </html>

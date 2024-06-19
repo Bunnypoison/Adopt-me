@@ -1,87 +1,130 @@
 let dogsData;
 
-// Function to display dogs
 const displayDogs = () => {
-  return fetch("http://localhost:3000/dogs")
-    .then((resp) => {
-      if (resp.ok) {
-        return resp.json();
-      } else {
-        throw new Error('Network response was not ok');
-      }
-    })
-    .then((data) => {
-      //populateDogNamesDropdown();
-      dogsData.forEach((dog) => {
-        const img = document.createElement("img");
-        img.src = dog.image;
-        img.alt = dog.name;
-        img.addEventListener("click", () => handleClick(dog));
-        document.querySelector('#dog-list').append(img);
-      });
-    })
-    .catch(error => console.error('Error fetching the data:', error));
-};
-displayDogs();
+  return fetch("http://localhost:3000/dogs") 
+  .then((resp) => {
+    if (resp.ok) {
+      return resp.json()
+    }})
+  .then((dogs) => {
+    dogsData = dogs
+    // Populate the dog names dropdown when the page loads
+    // need to add a .catch
+    dogNamesDropdown();
+    dogs.forEach((dog) => {
+      const imgContainer = document.createElement("div")
+      const img = document.createElement("img")
+      img.src = dog.image
+      img.alt = dog.name
 
-// Function to handle click event on a dog image
-const handleClick = (dogObj) => {
-  const dogDescription = document.getElementById('description');
-  const dogDescriptionText = `
-    Name: ${dogObj.name}
-    Breed: ${dogObj.breed}
-    Age: ${dogObj.age}
-    Available: ${dogObj.available ? 'Yes' : 'No'}
-  `;
-  dogDescription.innerText = dogDescriptionText;
-};
+      // create a caption element
+      const caption = document.createElement("description")
+      caption.textConent = `
+        ${dog.name}, 
+        ${dog.breed},
+        ${dog.age},
+        ${dog.available}
+        `
+      img.addEventListener("click", () => handleClick(dog, caption))
+
+      imgContainer.appendChild(img)
+      imgContainer.appendChild(caption);
+
+      document.querySelector('#dog-list').append(img)
+    })
+  })
+  .catch(error => console.error('Error fetching the data:', error))
+}
+displayDogs()
+
+const handleClick = (dogObj, captionElement) => {
+//  const dogDescription = [dog.name, dog.breed, dog.age, dog.available]
+//  documentGetElementById('#description').appendChild(dogDescription)
+const dogDescription = document.getElementById('description');
+dogDescription.innerText = `
+  Name: ${dogObj.name}
+  Breed: ${dogObj.breed}
+  Age: ${dogObj.age}
+  Available: ${dogObj.available ? 'Yes' : 'No'}
+`
+dogDescription.innertext(dogDescription)
+}
+handleClick()
+
+
+// Dog names array
+// const dogNames = ['PeterPan', 'TinkerBell', 'Wendy', 'Whiskey',]; ED
+const dogNames = document.querySelector("#dog-list") // AY
 
 // Function to populate the dog names dropdown
-// function populateDogNamesDropdown() {
-//   const dropdown = document.getElementById('select-dogs');
-//   dogsData.forEach(dogObj => {
-//     const option = document.createElement('option');
-//     option.innerText = dogObj.name;
-//     option.value = dogObj.name;
-//     dropdown.append(option);
-//   });
-//}
+function dogNamesDropdown() {
+  const dropdown = document.getElementById('select-dogs');
 
-// // Function to handle form submission
-// function handleSubmit(event) {
-//   event.preventDefault(); // Prevent the default form submission
+  dogsData.forEach(dogObj => {
+    //console.log(dogObj);
+    const option = document.createElement('option');
+    option.innerText = dogObj.name;
+    option.value = dogObj.name;
+    dropdown.append(option);
+  });
+}
 
-//   // Get form input values
-//   const name = document.getElementById('name').value;
-//   const email = document.getElementById('email').value;
-//   const dropdown = document.getElementById('select-dogs').value;
+// Function to handle form submission
+function handleSubmit(event) {
+  event.preventDefault(); // Prevent the default form submission
 
-//   // Simple form validation
-//   if (name.trim() === '') {
-//     alert('Please enter your name');
-//     return;
-//   }
+  // Get form input values
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  // const message = document.getElementById('message').value;
+  const dropdown = document.getElementById('dogNamesDropdown').value; // this is a repeat of line 38
 
-//   if (email.trim() === '') {
-//     alert('Please enter your email');
-//     return;
-//   }
+  // Simple form validation
+  if (userName.trim() === '') {
+    alert('Please enter your name');
+    return;
+  }
 
-//   if (dropdown === '') {
-//     alert('Please select a dog name');
-//     return;
-//   }
+  if (userEmail.trim() === '') {
+    alert('Please enter your email');
+    return;
+    // need to add vaildation of email address like @gmail.com for example)
+  }
 
-//   // Log form data to the console
-//   console.log('Form submitted:');
-//   console.log('Name:', name);
-//   console.log('Email:', email);
-//   console.log('Selected Dog:', dropdown);
+  // this part is not needed, no message from user, we want message to popup after formSubmit
+  // if (message.trim() === '') {
+  //   alert('Please enter a message');
+  //   return;
+  // }
 
-//   // Optionally, you can reset the form after submission
-//   document.getElementById('contact-form').reset();
+  if (dogNamesDropdown === dogs.name) {
+    alert('Please select a dog name'); // how to validate a dropdown selection??
+    return;
+  }
+
+  // Form data is valid, you can now submit it to a server using AJAX or fetch API
+  // Here, we are just logging the form data to the console
+  // Eventually we need to store data into server for future use, need to research still!!!!
+  console.log('Form submitted:');
+  console.log('Name:', name);
+  console.log('Email:', email);
+ // console.log('Message:', message);
+  console.log('dogNamesDropdown:', dogNamesDropdown); // see note on line 77
+
+  // Optionally, you can reset the form after submission
+  document.getElementById('handleSubmit').reset();
+}
+
+// Add event listener to the form submit button
+const submitButton = document.getElementById('submit-form');
+submitButton.addEventListener('submit', handleSubmit);
+
+// missing submitButton, dropdown, and contactform in index.html
+
+
+// redundant from line 98-99, not needed?
+// const button = document.querySelector('.myButton');
+
+// button.addEventListener('click'), function() {
+//   console.log('button clicked');
 // }
-
-// // Add event listener to the form submit button
-// const submitButton = document.getElementById('contact-form');
-// submitButton.addEventListener('submit', handleSubmit);
