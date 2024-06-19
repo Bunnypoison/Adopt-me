@@ -1,86 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Dog Adoption</title>
-	<link rel="stylesheet" href="style.css">
-	<script defer src="src/index.js"></script>
-    </head>
-	<header>
-		<h1>Welcome to Dog Adoption</h1>
-		<nav>
-			<ul>
-				<li><a href="#home">Home</a></li>
-				<li><a href="#dogs">Available Dogs</a></li>
-				<li><a href="#contact">Contact</a></li>
-			</ul>
-		</nav>
-	</header>
-
-	<main>
-		<section id="home">
-			<h2>Home</h2>
-			<p>Welcome to our dog adoption center. Here you can find your new best friend.</p>
-		</section>
-
-		<section id="dogs">
-			<h2>Available Dogs</h2>
-			<div id="dog-list">
-				<!-- Dog information will be dynamically inserted here -->
-
-			</div>
-		</section>
-
-		<h3>Display Details</h3>
-
-		<div id="description" name="See Details">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Dog Adoption</title>
+   <link rel="stylesheet" href="style.css"> <!-- Link to an external CSS file -->
+   <script defer src="index.js"></script>
+</head>
+<body>
+   <header>
+       <h1>Welcome to Dog Adoption</h1>
+       <!-- <nav>
+           <ul>
+               <li><a href="#home">Home</a></li>
+               <li><a href="#dogs">Available Dogs</a></li>
+               <li><a href="#contact">Contact</a></li>
+           </ul>
+       </nav> -->
+   </header>
 
 
-		</div>
-
-		<section id="submit-form-section">
-			<h2>Fill Out Form</h2>
-			<form id="submit-form" autocomplete>
-				<h2>Contact Us</h2>
-				<label for="name">Name:</label>
-				<input type="text" id="name" name="name" required>
-
-				<label for="email">Email:</label>
-				<input type="email" id="email" name="email" required>
+   <main>
+       <section id="home">
+           <h2>Home</h2>
+           <p>Welcome to our dog adoption center. Here you can find your new best friend.</p>
+       </section>
 
 
-				<label for="phonenumber">Phone:</label>
-				<input type="phonenumber" id="phonenumber" name="phonenumber" required>
-				<select id="select-dogs" name="select-dogs" required> 
-					<option value="">
-						Select a dog
-					</option>
-				</select>
-				<input type="submit" value="Continue Adoption">
-				<div id='heartContainer' class=".heart"></div>
-
-			</form>
-			<p id="message" class="hidden">Thank you for your time,If you have any questions, please contact us at <a
-					href="mailto:info@dogadoption.com">info@dogadoption.com</p>
-
-			</div>
+       <section id="dogs">
+           <h2>Available Dogs</h2>
+           <div id="dog-list"></div>
+               <div id="description"></div>
+           </div>
+       </section>
 
 
-		</section>
+       <h3>Display Details</h3>
 
-		<section id="contact">
-			<h2>Contact Us</h2>
-			<p></a>.</p>
-		</section>
-	
 
-	</main>
+       <div id="description" name="See Details"></div>
 
-	<footer>
-		<p>&copy; 2024 Dog Adoption. All rights reserved.</p>
-	</footer>
+
+       <section id="submit-form-section">
+           <h2>Fill Out Form</h2>
+           <form id="submit-form" autocomplete>
+               <h2>Contact Us</h2>
+               <label for="name">Name:</label>
+               <input type="text" id="name" name="name" required>
+
+
+               <label for="email">Email:</label>
+               <input type="email" id="email" name="email" required>
+
+
+
+
+               <label for="phonenumber">Phone:</label>
+               <input type="phonenumber" id="phonenumber" name="phonenumber" required>
+               <select id="select-dogs" name="select-dogs" required>
+                   <option value="">
+                       Select a dog
+                   </option>
+               </select>
+
+
+           <input type="submit" value="Continue Adoption">
+           </form>
+       </section>
+      
+       <section>
+           <p id="message" class="hidden">Thank you for your time,If you have any questions, please contact us at <a
+                   href="mailto:info@dogadoption.com">info@dogadoption.com</p>
+       </section>
+
+
+       <section id="contact">
+           <h2>Contact Us</h2>
+           <p></a>.</p>
+       </section>
+   </main>
+
+
+   <footer>
+       <p>&copy; 2024 Dog Adoption. All rights reserved.</p>
+   </footer>
 </body>
+
 
 </html>

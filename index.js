@@ -11,19 +11,45 @@ const displayDogs = () => {
     // Populate the dog names dropdown when the page loads
     dogNamesDropdown();
     dogs.forEach((dog) => {
+      const imgContainer = document.createElement("div")
       const img = document.createElement("img")
       img.src = dog.image
       img.alt = dog.name
-      img.addEventListener("click", () => handleClick(dog))
+
+      // create a caption element
+      const caption = document.createElement("description")
+      caption.textConent = `
+        ${dog.name}, 
+        ${dog.breed},
+        ${dog.age},
+        ${dog.available}
+        `
+
+      img.addEventListener("click", () => handleClick(dog, caption))
+
+      imgContainer.appendChild(img)
+      imgContainer.appendChild(caption);
+
       document.querySelector('#dog-list').append(img)
     })
   })
+  .catch(error => console.error('Error fetching the data:', error))
 }
 displayDogs()
 
-const handleClick = (dogObj) => {
-  console.log(dogObg) 
-}
+const handleClick = (dogObj, captionElement) => {
+  //  const dogDescription = [dog.name, dog.breed, dog.age, dog.available]
+  //  documentGetElementById('#description').appendChild(dogDescription)
+  const dogDescription = document.getElementById('description');
+  dogDescription.innerText = `
+    Name: ${dogObj.name}
+    Breed: ${dogObj.breed}
+    Age: ${dogObj.age}
+    Available: ${dogObj.available ? 'Yes' : 'No'}
+  `
+  dogDescription.innertext(dogDescription)
+  }
+  handleClick()
 
 // Dog names array
 // const dogNames = ['PeterPan', 'TinkerBell', 'Wendy', 'Whiskey',]; ED
@@ -34,7 +60,7 @@ function dogNamesDropdown() {
   const dropdown = document.getElementById('select-dogs');
 
   dogsData.forEach(dogObj => {
-    //console.log(dogObj);
+    console.log(dogObj);
     const option = document.createElement('option');
     option.innerText = dogObj.name;
     option.value = dogObj.name;
@@ -89,38 +115,13 @@ function handleSubmit(event) {
   console.log('dogNamesDropdown:', dogNamesDropdown); // see note on line 77
 
   // Optionally, you can reset the form after submission
-  
+  document.getElementById('submit-form').reset();
 }
 
 // Add event listener to the form submit button
- 
-  const form = document.getElementById('submit-form');
-  const message = document.getElementById('message');
-
-  form.addEventListener('submit', function(event) {
-    event.preventDefault(); 
-    document.getElementById('submit-form').reset();
-
-    message.textContent = 'Thank you for your time';
-    message.classList.remove('hidden');
-
-    
-    setTimeout(function() {
-      message.classList.add('hidden');
-    }, 3000);
-  });
-
-  
- 
-  const heartContainer = document.getElementById('heartContainer');
-   heartContainer.addEventListener('mousedown', function(event) {
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-    heart.style.left = `${event.clientX}px`;
-    heart.style.top = `${event.clientY}px`;
-
-    heartContainer.appendChild(heart);
-    heart.addEventListener('animationend', function() {
-      heart.remove();
-    });
-  });
+const submitButton = document.getElementById('submit-form');
+submitButton.addEventListener('submit', handleSubmit);
+setTimeout(function() {
+  message.classList.remove('hidden');
+  submit-form.reset();
+}, 1000);
