@@ -1,7 +1,7 @@
 // Global variables
 const dogNames = document.querySelector("#dog-list") 
 const dogDescription = document.querySelector('#description')
-const form = document.querySelector('#submit-form');
+const form = document.querySelector('#submit-form')
 
 // Fetch data first, then append img to page
 const displayDogs = () => {
