@@ -1,127 +1,114 @@
-let dogsData;
+// Global variables
+const dogNames = document.querySelector("#dog-list")
+const dogDescription = document.querySelector('#description')
+const form = document.querySelector('#submit-form')
 
+// Fetch data first, then append img to page
 const displayDogs = () => {
-  return fetch("http://localhost:3000/dogs") 
-  .then((resp) => {
-    if (resp.ok) {
-      return resp.json()
-    }})
-  .then((dogs) => {
-    dogsData = dogs
-    // Populate the dog names dropdown when the page loads
-    dogNamesDropdown();
-    dogs.forEach((dog) => {
-      const imgContainer = document.createElement("div")
-      const img = document.createElement("img")
-      img.src = dog.image
-      img.alt = dog.name
-
-      // create a caption element
-      const caption = document.createElement("description")
-      caption.textConent = `
-        ${dog.name}, 
-        ${dog.breed},
-        ${dog.age},
-        ${dog.available}
-        `
-
-      img.addEventListener("click", () => handleClick(dog, caption))
-
-      imgContainer.appendChild(img)
-      imgContainer.appendChild(caption);
-
-      document.querySelector('#dog-list').append(img)
+  return fetch("http://localhost:3000/dogs")
+    .then((resp) => {
+      if (resp.ok) {
+        return resp.json()
+      }
     })
-  })
-  .catch(error => console.error('Error fetching the data:', error))
+    .then((dogs) => {
+      dogsData = dogs
+      dogNamesDropdown()
+      dogs.forEach((dog) => {
+        const img = document.createElement("img")
+        img.src = dog.image
+        img.alt = dog.name
+        img.addEventListener('mouseover', () => handleMouseOver(dog))
+        img.addEventListener('click', () => handleClick(dog))
+        img.addEventListener('dblclick', () => handleDblClick(dog))
+        dogNames.append(img)
+      })
+    })
+    .catch(error => console.error('Error fetching the data:', error))
 }
 displayDogs()
 
-const handleClick = (dogObj, captionElement) => {
-  //  const dogDescription = [dog.name, dog.breed, dog.age, dog.available]
-  //  documentGetElementById('#description').appendChild(dogDescription)
-  const dogDescription = document.getElementById('description');
-  dogDescription.innerText = `
-    Name: ${dogObj.name}
-    Breed: ${dogObj.breed}
-    Age: ${dogObj.age}
-    Available: ${dogObj.available ? 'Yes' : 'No'}
-  `
-  dogDescription.innertext(dogDescription)
-  }
-  handleClick()
-
-// Dog names array
-// const dogNames = ['PeterPan', 'TinkerBell', 'Wendy', 'Whiskey',]; ED
-const dogNames = document.querySelector("#dog-list") // AY
-
-// Function to populate the dog names dropdown
-function dogNamesDropdown() {
-  const dropdown = document.getElementById('select-dogs');
-
-  dogsData.forEach(dogObj => {
-    console.log(dogObj);
-    const option = document.createElement('option');
-    option.innerText = dogObj.name;
-    option.value = dogObj.name;
-    dropdown.append(option);
-  });
+// 1. handleMouseOver eventListener to display dog description
+const handleMouseOver = (dogObj) => {
+  dogDescription.textContent = `
+   Name:${dogObj.name},
+   Breed: ${dogObj.breed},
+   Age: ${dogObj.age},
+   Available: ${dogObj.available}
+   `
 }
 
-// Function to handle form submission
-function handleSubmit(event) {
-  event.preventDefault(); // Prevent the default form submission
+// 2. handleClick eventListener to change page background color
+const handleClick = (dogObj) => {
+  document.body.style.backgroundColor = '#758FEB'
+}
 
-  // Get form input values
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const phonenumber = document.getElementById('phonenumber').value;
-  // const message = document.getElementById('message').value;
-  const dogNamesDropdown = document.getElementById('select-dogs').value; // this is a repeat of line 38
+// 3. handleDblClick eventListener to reset background color
+const handleDblClick = (dogObj) => {
+  document.body.style.backgroundColor = '#FFFFFF'
+}
+
+// Function to populate the dog names dropdown for form
+function dogNamesDropdown() {
+  const dropdown = document.getElementById('select-dogs')
+
+  // Creating a list for the dropdown menu 
+  dogsData.forEach(dogObj => {
+    const option = document.createElement('option')
+    option.innerText = dogObj.name
+    option.value = dogObj.name
+    dropdown.append(option)
+  })
+}
+
+// 3. handleSubmit eventListener w/message pop-up to user
+form.addEventListener('submit', handleSubmit)
+function handleSubmit(event) {
+  event.preventDefault()
+  const message = document.getElementById("message")
+  message.classList.remove("hidden")
+  setTimeout(function () {
+    message.classList.add('hidden')
+  }, 5000)
+
+  const userName = document.getElementById('userName').value
+  const email = document.getElementById('email').value
+  const phonenumber = document.getElementById('phonenumber').value
+  const dogNamesDropdown = document.getElementById('select-dogs').value
+
+  const userData = {
+    userName: userName, 
+    email,
+    phonenumber: phonenumber,
+    dogName:dogNamesDropdown
+  }
 
   // Simple form validation
-  if (name.trim() === '') {
-    alert('Please enter your name');
+  if (userName.trim() === '') {
+    alert('Please enter your name')
     return;
   }
-
   if (email.trim() === '') {
-    alert('Please enter your email');
+    alert('Please enter your email')
     return;
-    // need to add vaildation of email address like @gmail.com for example)
   }
-
   if (phonenumber.trim() === '') {
-    alert ('please enter your phonenumber')
+    alert('please enter your phone number')
   }
-  // this part is not needed, no message from user, we want message to popup after formSubmit
-  // if (message.trim() === '') {
-  //   alert('Please enter a message');
-  //   return;
-  // }
-
   if (dogNamesDropdown === '') {
-    alert('Please select a dog name'); // how to validate a dropdown selection??
+    alert('Please select a dog name')
     return;
   }
+  // store user data for POST request
 
-  // Form data is valid, you can now submit it to a server using AJAX or fetch API
-  // Here, we are just logging the form data to the console
-  // Eventually we need to store data into server for future use, need to research still!!!!
-  console.log('Form submitted:');
-  console.log('Name:', name);
-  console.log('Email:', email);
- // console.log('Message:', message);
-  console.log('dogNamesDropdown:', dogNamesDropdown); // see note on line 77
-
-  // Optionally, you can reset the form after submission
-  document.getElementById('submit-form').reset();
+  // POST request
+  fetch("http://localhost:3000/user-data", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(userData)
+  })
+    .then(resp => resp.json())
+    .then(dogObj => console.log(dogObj))
 }
-
-// Add event listener to the form submit button
-const submitButton = document.getElementById('submit-form');
-submitButton.addEventListener('submit', handleSubmit);
-setTimeout(function() {
-  message.classList.remove('hidden');
-  submit-form.reset();
-}, 1000);
