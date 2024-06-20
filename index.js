@@ -1,3 +1,4 @@
+// Global variables
 const dogNames = document.querySelector("#dog-list") 
 const dogDescription = document.querySelector('#description')
 const form = document.querySelector('#submit-form');
@@ -92,8 +93,15 @@ const name = document.getElementById('name').value
 const email = document.getElementById('email').value
 const phonenumber = document.getElementById('phonenumber').value
 const dogNamesDropdown = document.getElementById('select-dogs').value
-//  console.log('Form submitted:')
-//  console.log('Name:', name)
-//  console.log('Email:', email)
-//  console.log('dogNamesDropdown:', dogNamesDropdown)
+
+// POST request
+fetch("http://localhost:3000/dogs", {
+method: 'POST',
+headers: {
+  'Content-Type': 'application/json'
+},
+body:JSON.stringify(dogsData)
+})
+.then(resp => resp.json())
+.then(dogObj => console.log(dogObj))
 }
