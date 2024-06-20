@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Erica Domerese",
+  "author": "Erica Domerese, Alicia Yu"
   "license": "ISC",
   "dependencies": {
   }

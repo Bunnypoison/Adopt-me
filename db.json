@@ -1,12 +1,77 @@
 {
   "dogs": [
-    { "id": 1, "name": "Peter Pan", "breed": "German Sheperd", "age": 1, "available": true, "image":"https://www.petfinder.com/sites/default/files/images/content/shelter-dog-cropped.jpg"},
-    { "id": 2, "name": "Wendy", "breed": "Pit bull", "age": 1, "available": true, "image": "https://www.aspca.org/sites/default/files/adoptable-dogs-your-local-shelter.jpg"},
-    { "id": 3, "name": "TinkerBell", "breed": "Silky Terrier", "age": 10, "availa,ble": true, "image":"https://www.milofoundation.org/wp-content/uploads/2020/06/kb_milo_62-scaled-847x1024.jpg"},
-    { "id": 4, "name": "Whiskey", "breed": "Labrador Retriever", "age": 1, "available": true, "image":"https://blog.irvinecompanyapartments.com/wp-content/uploads/2021/02/header-image-dog.jpg"},
-    { "id": 5, "name": "Pooh", "breed": "Great Pyrenees", "age": 4, "available": true, "image":"https://i0.wp.com/nationalpyr.org/wp-content/uploads/2024/03/IMG_0911.jpg?resize=620%2C658&quality=99&strip=all&ssl=1"}, 
-    { "id": 6, "name": "Tigger", "breed": "Huntaway", "age": 2, "available": true, "image":"https://www.dailypaws.com/thmb/E3i7RNc0GocLX8iKhX7Yjtteg2w=/1500x0/filters:no_upscale():max_bytes(150001):strip_icc()/adopting-a-senior-dog-164856048-2-2000-b8be9eef61514e599d8283469a6c02ee.jpg"},
-    { "id": 7, "name": "Rue", "breed": "Nova Scotia Duck Tolling Retriever", "age": 8, "available": true, "image":"https://theoldmutthut.org/wp-content/uploads/2024/06/Screenshot_20240607_081527_Firefox-scaled.jpg"},
-    { "id": 8, "name": "Cheese", "breed": "Yorkshire Terrier", "age": 2, "available": true, "image":"https://nsdtrc-usa.org/wp-content/uploads/2017/06/Emily2-300x300.jpg"}
+    {
+      "id": "1",
+      "name": "Peter Pan",
+      "breed": "German Sheperd",
+      "age": 1,
+      "available": true,
+      "image": "https://www.petfinder.com/sites/default/files/images/content/shelter-dog-cropped.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Wendy",
+      "breed": "Pit bull",
+      "age": 1,
+      "available": true,
+      "image": "https://www.aspca.org/sites/default/files/adoptable-dogs-your-local-shelter.jpg"
+    },
+    {
+      "id": "3",
+      "name": "TinkerBell",
+      "breed": "Silky Terrier",
+      "age": 10,
+      "availa,ble": true,
+      "image": "https://www.milofoundation.org/wp-content/uploads/2020/06/kb_milo_62-scaled-847x1024.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Whiskey",
+      "breed": "Labrador Retriever",
+      "age": 1,
+      "available": true,
+      "image": "https://blog.irvinecompanyapartments.com/wp-content/uploads/2021/02/header-image-dog.jpg"
+    },
+    {
+      "id": "5",
+      "name": "Pooh",
+      "breed": "Great Pyrenees",
+      "age": 4,
+      "available": true,
+      "image": "https://i0.wp.com/nationalpyr.org/wp-content/uploads/2024/03/IMG_0911.jpg?resize=620%2C658&quality=99&strip=all&ssl=1"
+    },
+    {
+      "id": "6",
+      "name": "Tigger",
+      "breed": "Huntaway",
+      "age": 2,
+      "available": true,
+      "image": "https://www.dailypaws.com/thmb/E3i7RNc0GocLX8iKhX7Yjtteg2w=/1500x0/filters:no_upscale():max_bytes(150001):strip_icc()/adopting-a-senior-dog-164856048-2-2000-b8be9eef61514e599d8283469a6c02ee.jpg"
+    },
+    {
+      "id": "7",
+      "name": "Rue",
+      "breed": "Nova Scotia Duck Tolling Retriever",
+      "age": 8,
+      "available": true,
+      "image": "https://theoldmutthut.org/wp-content/uploads/2024/06/Screenshot_20240607_081527_Firefox-scaled.jpg"
+    },
+    {
+      "id": "8",
+      "name": "Cheese",
+      "breed": "Yorkshire Terrier",
+      "age": 2,
+      "available": true,
+      "image": "https://nsdtrc-usa.org/wp-content/uploads/2017/06/Emily2-300x300.jpg"
+    }
+  ],
+  "user-data": [
+    {
+      "id": "8459",
+      "userName": "erica domerese",
+      "email": "xrabbitonthemoonx@gmail.com",
+      "phonenumber": "4792140001",
+      "dogName": "Tigger"
+    }
   ]
 }
